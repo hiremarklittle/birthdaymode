@@ -1,0 +1,129 @@
+$red: rgba(139, 0, 0, 1)
+$gray: rgba(30, 30, 30, 0.8)
+$transparent: rgba(0, 0, 0 ,0)
+
+$bp-xs: 576px
+$bp-sm: 768px
+$bp-md: 1024px
+$bp-lg: 1290px
+$bp-xl: 1440px
+
+@mixin bp($bp)
+    @media only screen and (min-width: $bp)
+        @content
+
+*, *:before, *:after
+    box-sizing: border-box
+
+html
+    min-height: 100%
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../img/bg.jpg")
+    background-attachment: fixed
+    background-size: cover
+    color: white
+    font-size: 18px
+
+body
+    font-family: "Lato", sans-serif
+    overflow-x: hidden
+    margin: 0
+    min-height: 100%
+
+h1
+    font-size: 0
+
+h2, h3, a
+    text-transform: uppercase
+
+h3
+    color: $red
+
+header
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-end
+    background-color: $gray
+    box-sizing: content-box
+    width: 100%
+
+ul
+    list-style: none
+    margin: 0
+
+    nav &
+        float: right
+        li
+            display: inline-block
+            float: left
+            padding: 1rem
+            a
+                color: white
+                text-decoration: none
+                font-size: 1.2rem
+    
+    section &
+        background: $gray
+        border: 0.2rem solid $red
+        border-image: linear-gradient(145deg, $red 0%, $transparent 15%, $transparent 20%, $transparent 40%, $transparent 60%, $transparent 80%, $transparent 85%, $red 100%) 1
+        margin: 0
+        padding: 1rem 1.5rem
+        width: 100%
+        li
+            padding: 0.5rem 0
+            &::before
+                content: "\2022"
+                color: $red
+                font-weight: bold
+                display: inline-block
+                width: 1rem
+                margin-left: -1rem
+
+#rules
+    display: flex
+    flex-flow: column wrap
+    align-items: stretch
+    justify-content: space-around
+    padding: 0 1rem
+    @include bp($bp-lg)
+        flex-flow: row wrap
+        align-content: stretch
+        justify-content: flex-start
+        
+    
+    article
+        margin: 1rem
+        box-sizing: content-box
+        align-self: stretch
+        @include bp($bp-lg)
+            flex: 0 0 47%
+            flex-flow: column nowrap
+            align-self: flex-start
+        
+        &.basics
+            order: 1
+        &.pvp
+            order: 2
+        &.servers
+            order: 3
+        &.pve
+            order: 4
+
+    .header
+        order: 0
+        align-self: flex-start
+        flex: 0 0 100%
+
+
+#leaderboard
+    display: flex
+    flex-flow: column wrap
+    align-items: flex-start
+    justify-content: space-around
+    padding: 0 1rem
+    min-height: 100%
+
+    .leaderboard-info
+        align-self: center
+
+.hidden
+    display: none
