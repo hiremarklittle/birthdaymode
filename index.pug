@@ -13,17 +13,19 @@ html(lang="en")
 
         link(rel="stylesheet" href="style/style.css")
 
-        script(src="js/script.js")
+        
     body
         header 
             h1 Birthday Mode! 
+            
+            img.logo(src="img/1x/logo.png")
 
             nav
                 ul
                     li
                         a#rulesToggle(href="#rules") Rules
                     li
-                        a#leaderboardToggle(href="#leaderboard") Leaderboard 
+                        a#leaderboardToggle(href="#leaderboard") Leaderboards
         
         main
             section#rules
@@ -70,8 +72,8 @@ html(lang="en")
                         li You can defend yourself against PvE waves if needed. For example, Flameheart event or if skeleton ships are chasing you.
                         li You cannot kill megolodons or krakens, but must escape because I'm feeling like a bitter bastard and want some shitty arbitrary rules in play.
 
-            section.hidden#leaderboard
-                h2 Leaderboard 
+            section#leaderboard
+                h2 Leaderboards
 
                 article.leaderboard-info 
                     p LMAO ain't nobody doing this because LDSlurrer isn't backing it.
@@ -79,8 +81,5 @@ html(lang="en")
 
         footer
 
-        script(
-            src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous")
-       
+        script(src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous")
+        script(src="js/script.js")

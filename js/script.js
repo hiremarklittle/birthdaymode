@@ -1,13 +1,9 @@
 $('#rulesToggle').click(function () {
-    if ($('#rules').hasClass('hidden')) {
-        $('#rules').removeClass('hidden');
-        $('#leaderboard').addClass('hidden');
-    }
+    $('#rules').css('display', 'flex');
+    $('#leaderboard').css('display', 'none');
 });
 
  $('#leaderboardToggle').click(function () {
-    if ($('#leaderboard').hasClass('hidden')) {
-        $('#leaderboard').removeClass('hidden');
-        $('#rules').addClass('hidden');
-    }
+    $('#leaderboard').css('display', 'flex');
+    $('#rules').css('display', 'none');
 });

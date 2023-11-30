@@ -21,7 +21,13 @@ html
     background-attachment: fixed
     background-size: cover
     color: white
-    font-size: 18px
+    font-size: 12px
+    @include bp($bp-sm)
+        font-size: 14px
+    @include bp($bp-md)
+        font-size: 16px
+    @inclde bp($bp-lg)
+        font-size: 18px
 
 body
     font-family: "Lato", sans-serif
@@ -38,32 +44,19 @@ h2, h3, a
 h3
     color: $red
 
-header
-    display: flex
-    flex-flow: row nowrap
-    justify-content: flex-end
-    background-color: $gray
-    box-sizing: content-box
-    width: 100%
-
 ul
-    list-style: none
+    list-style-type: none
     margin: 0
 
-    nav &
-        float: right
-        li
-            display: inline-block
-            float: left
-            padding: 1rem
-            a
-                color: white
-                text-decoration: none
-                font-size: 1.2rem
-    
+    nav & li
+        padding: 1rem
+        a
+            color: white
+            text-decoration: none
+
     section &
         background: $gray
-        border: 0.2rem solid $red
+        border: 0.1rem solid $red
         border-image: linear-gradient(145deg, $red 0%, $transparent 15%, $transparent 20%, $transparent 40%, $transparent 60%, $transparent 80%, $transparent 85%, $red 100%) 1
         margin: 0
         padding: 1rem 1.5rem
@@ -78,52 +71,73 @@ ul
                 width: 1rem
                 margin-left: -1rem
 
-#rules
+main
     display: flex
-    flex-flow: column wrap
-    align-items: stretch
-    justify-content: space-around
-    padding: 0 1rem
-    @include bp($bp-lg)
-        flex-flow: row wrap
-        align-content: stretch
-        justify-content: flex-start
-        
-    
-    article
-        margin: 1rem
-        box-sizing: content-box
-        align-self: stretch
-        @include bp($bp-lg)
-            flex: 0 0 47%
-            flex-flow: column nowrap
-            align-self: flex-start
-        
-        &.basics
-            order: 1
-        &.pvp
-            order: 2
-        &.servers
-            order: 3
-        &.pve
-            order: 4
+    flex-flow: row nowrap
+    flex: 0 0 100%
+    width: 100%
+    padding-top: 4rem
 
-    .header
-        order: 0
-        align-self: flex-start
-        flex: 0 0 100%
-
-
-#leaderboard
+header
+    background: $gray
     display: flex
-    flex-flow: column wrap
+    flex-flow: column nowrap
+    position: fixed
+    justify-content: flex-end
+    width: 100%
+    height: 4rem
+
+    img
+        align-self: center
+        height: 2.5rem
+        margin-bottom: -4rem
+        
+
+    ul
+        display: flex
+        flex-flow: row nowrap
+        justify-content: flex-end
+        padding: 0
+        @include bp($bp-md)
+            justify-content: flex-end
+
+section
+    display: flex
+    flex-flow: row wrap
+    flex: 0 0 100%
+    padding: 5rem
     align-items: flex-start
     justify-content: space-around
-    padding: 0 1rem
-    min-height: 100%
+    gap: 2rem
 
-    .leaderboard-info
-        align-self: center
+    article
+        display: flex
+        flex-flow: row wrap
+        justify-content: flex-start
+        flex: 0 0 100%
+        @include bp($bp-md)
+            flex: 0 0 calc(50% - 2rem)
+        @include bp($bp-lg)
+            flex: 0 0 calc(100% / 3 - (2rem * 2 / 3 ))
+            &:last-of-type
+                margin-right: auto
 
-.hidden
+section#leaderboard
+    flex-flow: row wrap
+    align-items: flex-start
+    justify-content: flex-start
+    
+    article
+        display: flex
+        flex-flow: row wrap
+        flex: 0 0 100%
+        justify-content: center
+
+.header
+    flex-basis: 100%
+    width: 100%
+    align-self: flex-start
+    order: 0
+
+#rules
     display: none
